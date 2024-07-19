@@ -58,10 +58,6 @@ select sub_category,sum(profit) as profit_gen from ret group by sub_category ord
 select product_id, sum(sale_price) as revenue from ret group by product_id order by revenue desc limit 10;
 
 
-#find top 5 highest selling products in each region by quantity
-select region, product_id, sum(quantity) as units_sold from ret group by region, product_id order by units_sold desc limit 5;
-
-
 #find top 5 highest revenue generating products in each region
 with cte as 
 (select region, product_id, sum(sale_price) as revenue_gen from ret group by region, product_id)
